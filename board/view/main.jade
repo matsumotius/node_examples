@@ -1,0 +1,19 @@
+!!! 5
+html(lang="ja")
+  head
+    link(type = 'text/css', rel = 'stylesheet', href = '/css/common.css')
+    title クソサンプル
+  body
+    #logo クソサンプル〜
+    #thread-list
+      - each _thread in thread
+        li(class='no-list-style')
+          a(href='/thread/'+_thread.id)= _thread.title + '(' + _thread.comment.length + ')'
+    hr
+    #form-container
+      form(method='POST', action='/thread')
+        タイトル
+        input(type='text', id='input-title', name='title')
+        内容
+        input(type='text', id='input-description', name='description')
+        input(type='submit', value='投稿')

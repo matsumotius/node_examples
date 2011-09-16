@@ -1,0 +1,46 @@
+!!! 5
+html(lang="ja")
+  head
+    link(type = 'text/css', rel = 'stylesheet', href = '/css/common.css')
+    title クソサンプル
+  body
+    #logo クソサンプル〜
+    #thread-container
+       .comment-container
+         div(class='comment-number-wapper float-left')
+           span(class='comment-number') 1
+           span :
+         div(class='comment-user-wapper float-left')
+           span 投稿者:
+           span(class='comment-user') クソサンプル名無し
+         div(class='comment-id-wapper float-left')
+           span ID:
+           span(class='comment-id')= thread.posted_by
+         div(class='comment-date-wapper float-left')
+           span(class='comment-date')= thread.posted_at
+         br(clear='all')
+         div(class='comment-description')= thread.description
+      
+    #comment-list
+      - each _comment, num in thread.comment
+        li(class='comment no-list-style')
+          .comment-container
+            div(class='comment-number-wapper float-left')
+              span(class='comment-number')= num+2
+              span :
+            div(class='comment-user-wapper float-left')
+              span 投稿者:
+              span(class='comment-user') クソサンプル名無し
+            div(class='comment-id-wapper float-left')
+              span ID:
+              span(class='comment-id')= _comment.posted_by
+            div(class='comment-date-wapper float-left')
+              span(class='comment-date')= _comment.posted_at
+            br(clear='all')
+            div(class='comment-description')= _comment.description
+    hr
+    #form-container
+      form(method='POST', action='/thread/'+thread._id)
+        内容
+        input(type='text', id='input-description', name='description')
+        input(type='submit', value='投稿')

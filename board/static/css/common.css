@@ -1,0 +1,21 @@
+#logo {
+    font-size : 24px;
+}
+.no-list-style {
+    list-style : none;
+}
+.float-left {
+    float : left;
+}
+.comment-container {
+    padding : 3px;
+}
+.comment-number-wapper,
+.comment-user-wapper, 
+.comment-date-wapper,
+.comment-id-wapper {
+    margin : 0px 3px;
+}
+.comment-description {
+    padding : 4px;
+}
